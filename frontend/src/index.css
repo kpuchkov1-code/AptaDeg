@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Fragment+Mono:ital@0;1&family=DM+Sans:wght@400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #050c14;
+  --bg-secondary: #0a1628;
+  --bg-card: #0f1f35;
+  --border: #1a3050;
+  --accent-cyan: #00d4ff;
+  --accent-green: #00ff9d;
+  --accent-amber: #ffaa00;
+  --accent-red: #ff4455;
+  --text-primary: #e8f4f8;
+  --text-secondary: #7a9bb5;
+  --text-muted: #3d5a75;
+}
+
+* {
+  box-sizing: border-box;
+  border-radius: 0 !important;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  cursor: crosshair;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Noise texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  background-size: 200px 200px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+}
+
+/* Selection */
+::selection {
+  background: rgba(0, 212, 255, 0.3);
+}
+
+/* Focus */
+*:focus {
+  outline: 1px solid var(--accent-cyan);
+  outline-offset: 0;
+}
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Typography helpers */
+.font-syne { font-family: 'Syne', sans-serif; }
+.font-mono-frag { font-family: 'Fragment Mono', monospace; }
+.font-dm { font-family: 'DM Sans', sans-serif; }
+
+/* Input / Select / Button reset */
+input, select, button {
+  font-family: inherit;
+  cursor: crosshair;
+}
+
+/* Remove browser border-radius from inputs */
+input[type="text"],
+select {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0 !important;
+}
+
+/* Range slider */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: var(--bg-secondary);
+  border: none;
+  cursor: crosshair;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 10px;
+  height: 10px;
+  background: var(--accent-cyan);
+  border-radius: 0 !important;
+  cursor: crosshair;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  background: var(--accent-cyan);
+  border-radius: 0 !important;
+  cursor: crosshair;
+  border: none;
+}

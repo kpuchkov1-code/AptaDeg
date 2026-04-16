@@ -1,0 +1,20 @@
+/* AptaDeg design tokens — imported by App.jsx */
+/* Supplements index.css: adds --cyan/--green/--amber/--red aliases
+   and new tokens not in the original theme. */
+
+:root {
+  /* Colour aliases (match --accent-* in index.css) */
+  --cyan:          #00d4ff;
+  --green:         #00ff9d;
+  --amber:         #ffaa00;
+  --red:           #ff4455;
+
+  /* Extra surface levels */
+  --bg-elevated:   #152840;
+  --border-bright: #2a4870;
+
+  /* Font stack tokens */
+  --font-display:  'Syne', sans-serif;
+  --font-mono:     'Fragment Mono', monospace;
+  --font-body:     'DM Sans', sans-serif;
+}
